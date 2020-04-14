@@ -111,22 +111,19 @@ This way, you can be sure that you are authenticated at start and after exit you
 
 ## Example usage
 
-As written in `run.py` file, you can combine those two wrappers and create simple message exporter from JSOS to your email. You can create powerful CLI tool to help you safe you a little time.
+Script `run.py` is designed to be plug-and-go - you just simply run it in your terminal.
 
-```python3
-with Jsos(username=jsos_username, password=jsos_password) as jsos, \
-			StudentMail(email=mail, password=mail_password) as mail:
-    while True:
-        msgs = jsos.get_messages(max=3, only_unread=True)
-        for msg in msgs:
-            mail.prepare_message()
-            mail.prepare_headers(subject=msg['topic'])
-            mail.prepare_content(content=msg['html_content'], msg_from=msg['from'])
-            mail.send()
+### Arguments
 
-        time.sleep(120)
+There are several arguments necessary for the script to run:
 
-```
+- `--wait-time` - wait time between message checking (default: 240s)
+- `--input` - lets you type your credentials securely in terminal
+- `--no-input` - exact oposite - you have to provide a couple more arguments:
 
-In this example, every 2 minutes your JSOS message folder is checked for new messages and if they are found, script forwards them to your email inbox.
+    - `--jsos-usr` - jsos username
+    - `--jsos-pwd` - jsos password
+    - `--email` - your email
+    - `--email-pwd` - your email's password
+
 
