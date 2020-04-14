@@ -54,6 +54,7 @@ class Jsos():
 
 	def __enter__(self): 
 		log.info("Starting coonnection with JSOS")
+		self.login()
 		return self
 
 	def __exit__(self, exc_type, exc_value, exc_traceback): 

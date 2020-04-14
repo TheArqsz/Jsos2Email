@@ -53,7 +53,6 @@ def main():
 	jsos_username, jsos_password = get_jsos_creds()
 	with Jsos(username=jsos_username, password=jsos_password) as jsos, \
 			StudentMail(email=mail, password=mail_password) as mail:
-		jsos.login()	
 		while True:
 			msgs = jsos.get_messages(max=3, only_unread=True)
 			for msg in msgs:
