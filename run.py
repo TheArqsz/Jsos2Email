@@ -63,7 +63,10 @@ def main():
 				mail.send()
 
 			log.info(f"Sleeping for {WAIT_TIME} sec")
-			wait(WAIT_TIME)
+			try:
+				wait(WAIT_TIME)
+			except KeyboardInterrupt:
+				exit(1)
 
 if __name__ == "__main__":
 	main()
