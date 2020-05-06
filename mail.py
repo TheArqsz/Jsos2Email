@@ -155,12 +155,12 @@ class StudentMail:
 		elif not self.__headers_prepared:
 			raise StudentMailException("Headers not prepared")
 
-		html = f"""
-		From: <b>{msg_from}</b>
+		html = """
+		From: <b>{}</b>
 		<br/>
 		<br/>
-		{content}
-		"""
+		{}
+		""".format(msg_from, content)
 		part = MIMEText(html, "html")
 		self.message.attach(part)
 

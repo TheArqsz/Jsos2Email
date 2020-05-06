@@ -166,7 +166,7 @@ class Jsos():
 				log.warning("Login not successful - trying in 10 seconds")
 				wait(10)
 
-		raise JsosAuthException(f"Login not successful after {tries} tries - exiting")
+		raise JsosAuthException("Login not successful after {} tries - exiting".format(tries))
 
 	def logout(self, force=False):
 		"""Logs user out of JSOS
