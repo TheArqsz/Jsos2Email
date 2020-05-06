@@ -132,11 +132,11 @@ class Jsos():
 
 		data = {
 			'id1_hf_0': '',
-			'oauth_request_url': f"{self.base_oauth_url}/oauth/authenticate",
+			'oauth_request_url': "{}/oauth/authenticate".format(self.base_oauth_url),
 			'oauth_consumer_key': tokens['oauth_consumer_key'],
 			'oauth_token': tokens['oauth_token'],
 			'oauth_locale': tokens['oauth_locale'],
-			'oauth_callback_url': f"{self.base_jsos_url}/index.php/site/loginAsStudent",
+			'oauth_callback_url': "{}/index.php/site/loginAsStudent".format(self.base_jsos_url),
 			'oauth_symbol': 'EIS',
 			'username': self.username,
 			'password': self.password,
