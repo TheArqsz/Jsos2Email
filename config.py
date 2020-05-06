@@ -8,6 +8,6 @@ import logging
 log = logging.Logger("jsos2mail")
 logging.basicConfig(
 			level=logging.INFO, 
-			format='[%(asctime)s] %(module)s: %(message)s', 
+			format='[%(asctime)s] jsos2mail: %(message)s', 
 			datefmt='%m/%d/%Y %H:%M:%S'
 		)
