@@ -66,15 +66,17 @@ def main():
     jsos_password = getenv('JSOS_PASSWORD')
     email_username = getenv('EMAIL_USERNAME')
     email_password = getenv('EMAIL_PASSWORD')
+    print(email_password)
+    print(email_username)
     if not jsos_username or not jsos_password or not email_password or not email_username:
         log.warning("No credentials")
         exit(1)
     else:
         if not check_mail_creds(email_username, email_password):
-            log.warning("Wrong credentials")
+            log.warning("Wrong email credentials")
             exit(1)
         if not check_jsos_creds(jsos_username, jsos_password):
-            log.warning("Wrong credentials")
+            log.warning("Wrong jsos credentials")
             exit(1)
 
     with Jsos(username=jsos_username, password=jsos_password) as jsos, \
